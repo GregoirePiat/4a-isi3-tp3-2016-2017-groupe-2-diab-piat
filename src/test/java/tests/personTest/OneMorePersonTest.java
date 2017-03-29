@@ -10,7 +10,7 @@ public class OneMorePersonTest extends PeopleTest{
     @Before
     public void initialize() {
         super.initialize();
-        getPersonneTest().setPerson(new OneMorePerson("Lastname", "Firstname", 2000, 01, 01));
+        getPersonneTest().setPerson(new OneMorePerson("Lastname", "Firstname", 2000, 0, 1));
     }
 
     @Test
