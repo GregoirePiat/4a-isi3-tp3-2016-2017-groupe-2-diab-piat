@@ -8,7 +8,7 @@ import java.util.List;
 
 public class OutilsPerson {
 
-    public List<IPerson> getPersonsOnRange(List<IPerson> persons, GregorianCalendar date, int minAge, int maxAge) throws IllegalArgumentException{
+    public static List<IPerson> getPersonsOnRange(List<IPerson> persons, GregorianCalendar date, int minAge, int maxAge) throws IllegalArgumentException{
 
         if (minAge > maxAge)
             throw new IllegalArgumentException();
@@ -27,7 +27,7 @@ public class OutilsPerson {
     }
 
 
-    public int getMaxAge(List<IPerson> persons, GregorianCalendar date){
+    public static int getMaxAge(List<IPerson> persons, GregorianCalendar date){
 
         int maxAge = -1;
 
