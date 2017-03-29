@@ -35,6 +35,9 @@ public class testOutils {
 
         //MOCK
         List<IPerson> mockedList = mock(List.class);
+        // TODO remplacer avec les 2 lignes ci-dessous (voir cours)
+        //Person mo = mock(Person.class);
+        //when(mo.getAge(null)).thenReturn(30);
         for (IPerson jeanEude : listSortie) {
             mockedList.add(jeanEude);
         }
