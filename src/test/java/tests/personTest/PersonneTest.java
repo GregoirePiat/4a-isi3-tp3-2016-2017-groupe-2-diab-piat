@@ -1,16 +1,17 @@
 package tests.personTest;
 
+import Adapter.PersonneAdapter;
 import org.junit.Before;
 import org.junit.Test;
 import people.EfficientPerson;
 import tests.PeopleTest;
 
-public class EfficientPersonTest extends PeopleTest {
+public class PersonneTest extends PeopleTest {
 
 
     @Before public void initialize() {
         super.initialize();
-        getPersonneTest().setPerson(new EfficientPerson("Lastname", "Firstname", 10));
+        getPersonneTest().setPerson(new PersonneAdapter("Lastname", "Firstname", 2000, 1, 1));
     }
 
     @Test
