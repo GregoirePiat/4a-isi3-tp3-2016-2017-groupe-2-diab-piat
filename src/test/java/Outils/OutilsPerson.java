@@ -8,10 +8,10 @@ import java.util.List;
 
 public class OutilsPerson {
 
-    public List<IPerson> getPersonsOnRange(List<IPerson> persons, GregorianCalendar date, int minAge, int maxAge){
+    public List<IPerson> getPersonsOnRange(List<IPerson> persons, GregorianCalendar date, int minAge, int maxAge) throws IllegalArgumentException{
 
         if (minAge > maxAge)
-            return IllegalArgumentException;
+            throw new IllegalArgumentException();
 
         List<IPerson> personsOnRange = new ArrayList<>();
 
