@@ -10,6 +10,9 @@ public class OutilsPerson {
 
     public List<IPerson> getPersonsOnRange(List<IPerson> persons, GregorianCalendar date, int minAge, int maxAge){
 
+        if (minAge > maxAge)
+            return IllegalArgumentException;
+
         List<IPerson> personsOnRange = new ArrayList<>();
 
         if (persons.size() == 0)
