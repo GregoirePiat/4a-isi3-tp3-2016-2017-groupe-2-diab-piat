@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.Before;
 import org.junit.Test;
 import people.*;
 import persons.IPerson;
@@ -11,15 +12,20 @@ public class PeopleTest
 {
     private PersonneTest personneTest;
 
+    @Before
+    public void initialize() {
+        this.setPersonneTest(new PersonneTest());
+    }
+
     @Test
     public void testGetAge() {
-
+/*
         new OneMorePerson("Lastname", "Firstname", 2000, 01, 01);
         new SimplePerson("Lastname", "Firstname", 2000, 01, 01);
         new SmallCodePerson("Lastname", "Firstname", 2000, 01, 01);
         new YetAnotherPerson("Lastname", "Firstname", 2000, 01, 01);
-
-        personneTest = new PersonneTest();
+*/
+        this.getPersonneTest().testGetAge();
 
     }
 
