@@ -2,11 +2,6 @@ package tests;
 
 import org.junit.Before;
 import org.junit.Test;
-import people.*;
-import persons.IPerson;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class PeopleTest
 {
