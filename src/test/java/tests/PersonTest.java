@@ -14,10 +14,10 @@ public class PersonTest {
 
 	@Test
 	public void testGetAge() {
-		GregorianCalendar date2010 = new GregorianCalendar(2010, 01, 01);
-		GregorianCalendar date2000Janv = new GregorianCalendar(2000, 01, 01);
-		GregorianCalendar date2000Dec = new GregorianCalendar(2000, 01, 12);
-		GregorianCalendar date1990 = new GregorianCalendar(1990, 01, 01);
+		GregorianCalendar date2010 = new GregorianCalendar(2010, 0, 1);
+		GregorianCalendar date2000Janv = new GregorianCalendar(2000, 0, 1);
+		GregorianCalendar date2000Dec = new GregorianCalendar(2000, 11, 2);
+		GregorianCalendar date1990 = new GregorianCalendar(1990, 0, 1);
 
 
 		//Premier constructeur - permet de run directement la classe sans erreur
@@ -44,15 +44,16 @@ public class PersonTest {
 
 	@Test
 	public void testWasBorn() {
-		GregorianCalendar date2010 = new GregorianCalendar(2010, 01, 01);
-		GregorianCalendar date2000Janv = new GregorianCalendar(2000, 01, 01);
-		GregorianCalendar date2000Dec = new GregorianCalendar(2000, 01, 12);
-		GregorianCalendar date1990 = new GregorianCalendar(1990, 01, 01);
+		GregorianCalendar date2010 = new GregorianCalendar(2010, 0, 1);
+		GregorianCalendar date2000Janv = new GregorianCalendar(2000, 0, 1);
+		GregorianCalendar date2000Dec = new GregorianCalendar(2000, 0, 12);
+		GregorianCalendar date1990 = new GregorianCalendar(1990, 0, 1);
+		GregorianCalendar date0 = new GregorianCalendar(0, 0, 0);
 
 
 		//Premier constructeur - permet de run directement la classe sans erreur
 		if (this.getPerson() == null)
-			this.setPerson(new Person("lastname", "firstname", 2000, 01, 01));
+			this.setPerson(new Person("lastname", "firstname", 2000, 1, 1));
 
 		// 10 ans après sa naissance
 		assertThat(person.wasBorn(date2010)).isTrue();
