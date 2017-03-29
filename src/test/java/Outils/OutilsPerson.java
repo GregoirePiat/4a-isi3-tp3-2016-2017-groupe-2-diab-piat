@@ -27,7 +27,7 @@ public class OutilsPerson {
     }
 
 
-    public int maxAge(List<IPerson> persons, GregorianCalendar date){
+    public int getMaxAge(List<IPerson> persons, GregorianCalendar date){
 
         int maxAge = -1;
 
