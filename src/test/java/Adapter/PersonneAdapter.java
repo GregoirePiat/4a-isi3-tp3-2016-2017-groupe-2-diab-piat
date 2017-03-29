@@ -19,16 +19,17 @@ public class PersonneAdapter implements IPerson {
 
     @Override
     public String getFirstName() {
-        return null;
+        return personne.getFirstName();
     }
 
     @Override
     public boolean wasBorn(GregorianCalendar gregorianCalendar) {
-        return false;
+        //TODO Personne ne possède pas cette méthode
+        return true;
     }
 
     @Override
     public int getAge(GregorianCalendar gregorianCalendar) {
-        return 0;
+        return personne.getAge(gregorianCalendar);
     }
 }
