@@ -22,6 +22,7 @@ Nous allons tester si les méthodes getAge et wasBorn dans les cas suivants :
 ## Question 4
 
 ## Question 5
+Pattern adapter (PersonneAdapter)
 
 ## Question 6
 
