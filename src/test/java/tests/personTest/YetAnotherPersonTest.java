@@ -2,7 +2,6 @@ package tests.personTest;
 
 import org.junit.Before;
 import org.junit.Test;
-import people.SmallCodePerson;
 import people.YetAnotherPerson;
 import tests.PeopleTest;
 
