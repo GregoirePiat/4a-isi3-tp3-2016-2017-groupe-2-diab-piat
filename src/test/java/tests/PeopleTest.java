@@ -5,11 +5,11 @@ import org.junit.Test;
 
 public class PeopleTest
 {
-    private PersonneTest personneTest;
+    private PersonTest personneTest;
 
     @Before
     public void initialize() {
-        this.setPersonneTest(new PersonneTest());
+        this.setPersonneTest(new PersonTest());
     }
 
     @Test
@@ -23,11 +23,11 @@ public class PeopleTest
         this.getPersonneTest().testWasBorn();
     }
 
-    public PersonneTest getPersonneTest() {
+    public PersonTest getPersonneTest() {
         return personneTest;
     }
 
-    public void setPersonneTest(PersonneTest personneTest) {
+    public void setPersonneTest(PersonTest personneTest) {
         this.personneTest = personneTest;
     }
 }
