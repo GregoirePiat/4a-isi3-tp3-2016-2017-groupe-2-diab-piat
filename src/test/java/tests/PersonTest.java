@@ -8,7 +8,7 @@ import persons.Person;
 
 import java.util.GregorianCalendar;
 
-public class PersonneTest {
+public class PersonTest {
 
 	private IPerson person;
 
