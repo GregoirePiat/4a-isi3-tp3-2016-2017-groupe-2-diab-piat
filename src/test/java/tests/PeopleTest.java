@@ -19,32 +19,13 @@ public class PeopleTest
 
     @Test
     public void testGetAge() {
-/*
-        new OneMorePerson("Lastname", "Firstname", 2000, 01, 01);
-        new SimplePerson("Lastname", "Firstname", 2000, 01, 01);
-        new SmallCodePerson("Lastname", "Firstname", 2000, 01, 01);
-        new YetAnotherPerson("Lastname", "Firstname", 2000, 01, 01);
-*/
         this.getPersonneTest().testGetAge();
 
     }
 
     @Test
     public void testWasBorn() {
-        List<IPerson> persons = new ArrayList<>();
-
-        persons.add(new EfficientPerson("Lastname", "Firstname", 10));
-        persons.add(new OneMorePerson("Lastname", "Firstname", 2000, 01, 01));
-        persons.add(new SimplePerson("Lastname", "Firstname", 2000, 01, 01));
-        persons.add(new SmallCodePerson("Lastname", "Firstname", 2000, 01, 01));
-        persons.add(new YetAnotherPerson("Lastname", "Firstname", 2000, 01, 01));
-
-        personneTest = new PersonneTest();
-
-        for (IPerson person : persons){
-            personneTest.setPerson(person);
-            personneTest.testWasBorn();
-        }
+        this.getPersonneTest().testWasBorn();
     }
 
     public PersonneTest getPersonneTest() {
