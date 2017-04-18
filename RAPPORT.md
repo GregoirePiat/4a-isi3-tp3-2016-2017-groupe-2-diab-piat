@@ -83,4 +83,15 @@ Les tests des fonctions getMaxAge() et getPersonsOnRange() sont disponinles dans
 ## Question 9
 
 ## Question 10
+Pour nous assurer que les fonctions getPersonsOnRange() et getMaxAge() fonctionnent de manière "anonyme", nous pouvons vérifier que celles-ci n'utilisent pas les fonctions getName() et getFirstName() sur les personnes.
+Pour cela, nous pouvons simplement utiliser la fonction vérify sur l'objet mock :
+```java
+verify(person, atLeastOnce()).getAge(anyObject());
+```
+Avec cette ligne, nous vérifions que la fonction getAge() est utilisée **au moins une fois** sur l'objet person.
 
+```java
+verify(person, never()).getFirstName();
+verify(person, never()).getName();
+```
+Avec ces deux lignes, nous vérifions que les fonctions getFirstName() et getName() **ne sont pas utilisées** sur l'objet person.
