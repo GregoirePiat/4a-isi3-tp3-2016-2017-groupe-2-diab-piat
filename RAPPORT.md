@@ -82,6 +82,8 @@ Les tests des fonctions getMaxAge() et getPersonsOnRange() sont disponinles dans
 
 ## Question 9
 
+Question non prise en compte, EMMA ne fonctionne pas sur IntelliJ avec Java 8. 
+
 ## Question 10
 Pour nous assurer que les fonctions getPersonsOnRange() et getMaxAge() fonctionnent de manière "anonyme", nous pouvons vérifier que celles-ci n'utilisent pas les fonctions getName() et getFirstName() sur les personnes.
 Pour cela, nous pouvons simplement utiliser la fonction vérify sur l'objet mock :
