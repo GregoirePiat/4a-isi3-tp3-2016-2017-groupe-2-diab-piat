@@ -1,4 +1,4 @@
-package Outils;
+package outils;
 
 import persons.IPerson;
 

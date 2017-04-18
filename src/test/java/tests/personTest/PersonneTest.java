@@ -1,9 +1,8 @@
 package tests.personTest;
 
-import Adapter.PersonneAdapter;
+import adapter.PersonneAdapter;
 import org.junit.Before;
 import org.junit.Test;
-import people.EfficientPerson;
 import tests.PeopleTest;
 
 public class PersonneTest extends PeopleTest {

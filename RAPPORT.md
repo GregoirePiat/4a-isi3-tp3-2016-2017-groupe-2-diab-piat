@@ -74,6 +74,12 @@ public static int getMaxAge(List<IPerson> persons, GregorianCalendar date){
 
 ## Question 8
 
+Les tests des fonctions getMaxAge() et getPersonsOnRange() sont disponinles dans la classe de tests [testOutils](/src/test/java/tests/testOutils/testOutils). Ces tests remplissent les scénarios suivants :
+Vérifie getPersonOnRange() entre 0 et 10 ans
+Vérifie getPersonOnRange() entre 10 et 0 ans
+Vérifie l'age max de la liste de personnes (30 est attendu)
+Vérifie l'age max de la liste de personnes si la liste est vide (-1 est attendu par défaut)
+
 ## Question 9
 
 ## Question 10

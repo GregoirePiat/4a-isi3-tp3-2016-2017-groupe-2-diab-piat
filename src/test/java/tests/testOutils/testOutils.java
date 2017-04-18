@@ -3,53 +3,99 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 
-import Outils.OutilsPerson;
-import org.junit.Assert;
+import outils.OutilsPerson;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import persons.IPerson;
 import persons.Person;
-import tests.PersonTest;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class testOutils {
-    @Test
-    public void testOutils() {
+    private static final List<IPerson> PERSONS = new ArrayList<IPerson>();
 
-        List<IPerson> list = new ArrayList<>();
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
-        Person jeanLuc = new Person("jean-luc", "lastname", 2000, 10, 10);
-        list.add(jeanLuc);
-        Person jeanAlbert = new Person("jean-albert", "lastname", 2010, 10, 10);
-        list.add(jeanAlbert);
-        Person jeanMichel = new Person("jean-michel", "lastname", 2020, 10, 10);
-        list.add(jeanMichel);
-        Person jeanPatick = new Person("jean-patrick", "lastname", 2030, 10, 10);
-        list.add(jeanPatick);
+    @Before
+    /**
+     * Initialisation d'une liste contenant 4 Mocks personne
+     */
+    public void initPersons() {
 
-        GregorianCalendar date2040 = new GregorianCalendar(2040, 10, 10);
+        PERSONS.clear();
 
-        List<IPerson> listSortie = OutilsPerson.getPersonsOnRange(list, date2040, 30, 40);
+        final Person jeanMichel = mock(Person.class);
+        // Spécification de la valeur de retour attendue pour getAge() sur l'objet jeanMichel
+        when(jeanMichel.getAge(anyObject())).thenReturn(0);
 
-        //MOCK
-        List<IPerson> mockedList = mock(List.class);
-        // TODO remplacer avec les 2 lignes ci-dessous (voir cours)
-        //Person mo = mock(Person.class);
-        //when(mo.getAge(null)).thenReturn(30);
-        for (IPerson jeanEude : listSortie) {
-            mockedList.add(jeanEude);
-        }
+        final Person JeanEude = mock(Person.class);
+        when(JeanEude.getAge(anyObject())).thenReturn(10);
 
-        verify(mockedList, times(0)).add(jeanMichel);
-        verify(mockedList, times(0)).add(jeanPatick);
-        verify(mockedList, times(1)).add(jeanAlbert);
-        verify(mockedList, times(1)).add(jeanLuc);
+        final Person JeanPatrick = mock(Person.class);
+        when(JeanPatrick.getAge(anyObject())).thenReturn(20);
 
-        List<Integer> mockedInt = mock(List.class);
-        mockedInt.add(OutilsPerson.getMaxAge(list, date2040));
-        verify(mockedInt, times(1)).add(40);
+        final Person JeanJean = mock(Person.class);
+        when(JeanJean.getAge(anyObject())).thenReturn(30);
+
+        PERSONS.add(jeanMichel);
+        PERSONS.add(JeanEude);
+        PERSONS.add(JeanPatrick);
+        PERSONS.add(JeanJean);
     }
 
+    @Test
+    /**
+     * Vérifie getPersonOnRange() entre 0 et 10 ans
+     */
+    public void testGetPersonsOnRangeValid() {
+        assertThat(OutilsPerson.getPersonsOnRange(PERSONS, null, 0, 10).size()).isEqualTo(2);
+        checkPersons();
+    }
+
+    @Test
+    /**
+     * Vérifie getPersonOnRange() entre 10 et 0 ans
+     */
+    public void testGetPersonsOnRangeInvalid() {
+        this.expectedException.expect(IllegalArgumentException.class);
+        OutilsPerson.getPersonsOnRange(PERSONS, null, 10, 0);
+        checkPersons();
+    }
+
+    @Test
+    /**
+     * Vérifie l'age max de la liste de personnes (30 est attendu)
+     */
+    public void testGetMaxAgeValid() {
+        assertThat(OutilsPerson.getMaxAge(PERSONS, null)).isEqualTo(30);
+        checkPersons();
+    }
+
+    @Test
+    /**
+     * Vérifie l'age max de la liste de personnes si la liste est vide (-1 est attendu par défaut)
+     */
+    public void testGetMaxAgeInvalid() {
+        PERSONS.clear();
+        assertThat(OutilsPerson.getMaxAge(PERSONS, null)).isEqualTo(-1);
+        checkPersons();
+    }
+
+    /**
+     * Réponse à la question 10
+     */
+    private void checkPersons() {
+        for (IPerson person : PERSONS) {
+            // Vérifie que l'age de la personne est lu au moins une fois
+            verify(person, atLeastOnce()).getAge(anyObject());
+            // Vérifie que le prénom de la personne n'est jamais lu
+            verify(person, never()).getFirstName();
+            // Vérifie que le nom de la personne n'est jamais lu
+            verify(person, never()).getName();
+        }
+    }
 }
